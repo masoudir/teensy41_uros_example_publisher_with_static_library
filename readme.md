@@ -4,8 +4,8 @@
 
 ## Masoud Iranmehr
 
+Thsi repository show a simple Arduino example of uros publishing an integer into ROS2 (foxy) using uros static library and Teensy 4.1.
 
-If session is not established, while this agent is on, try to reset the microcontroller (reset in hardware). Becareful do not disconnect the serial port while agent is up.
 
 ## How to run this project
 
@@ -145,6 +145,7 @@ Open a new terminal:
 
     ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0
 
+If session is not established, while this agent is on, try to reset the microcontroller (reset in hardware). Becareful do not disconnect the serial port while agent is up.
 
 #### How to read the topic that is published
 
