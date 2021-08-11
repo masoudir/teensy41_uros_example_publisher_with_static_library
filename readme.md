@@ -126,6 +126,10 @@ Then if we want to add our static library to the project, we need to remove the 
 
     rm -r /teensy41_uros_example_publisher_with_static_library/lib/microros/*
     rm /teensy41_uros_example_publisher_with_static_library/lib/libmicroros.a
+    
+    cd /teensy41_uros_example_publisher_with_static_library/lib/microros/
+    wget https://github.com/masoudir/teensy41_uros_example_publisher_with_static_library/blob/master/lib/microros/default_transport.cpp
+    wget https://github.com/masoudir/teensy41_uros_example_publisher_with_static_library/blob/master/lib/microros/micro_ros_arduino.h
 
     cp -r /microros_ws/firmware/build/include/* /teensy41_uros_example_publisher_with_static_library/lib/microros/
     cp /microros_ws/firmware/build/libmicroros.a /teensy41_uros_example_publisher_with_static_library/lib/
