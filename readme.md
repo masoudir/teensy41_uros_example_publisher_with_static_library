@@ -4,7 +4,7 @@
 
 ## Masoud Iranmehr
 
-Thsi repository show a simple Arduino example of uros publishing an integer into ROS2, using
+This repository shows a simple Arduino example of uros publishing an integer into ROS2, using
 
 * ROS2 foxy
 * uros static library
