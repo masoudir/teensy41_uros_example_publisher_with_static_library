@@ -4,7 +4,13 @@
 
 ## Masoud Iranmehr
 
-Thsi repository show a simple Arduino example of uros publishing an integer into ROS2 (foxy) using uros static library and Teensy 4.1.
+Thsi repository show a simple Arduino example of uros publishing an integer into ROS2, using
+
+* ROS2 foxy
+* uros static library
+* Teensy 4.1 as Hardware
+* Platformio IDE
+
 
 
 ## How to run this project
