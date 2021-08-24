@@ -89,9 +89,6 @@ void setup() {
 
 void loop() {
   delay(100);
-  // if(msg.data == 0) {
-    // RCSOFTCHECK(rcl_publish(&publisher, &msg, NULL));
-    // }
 
   RCSOFTCHECK(rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100)));
 }
