@@ -31,14 +31,6 @@ extern "C"
  * the associated topic type, the publisher's gid, and the publisher QoS profile.
  * Names of non-existent topics are allowed, in which case an empty array will be returned.
  *
- * \par QoS that are correctly read
- * The QoS profiles returned might have some invalid fields.
- * The rmw implementation must set the invalid fields to `RMW_QOS_POLICY_*_UNKNOWN`.
- * For DDS based implementations, the only QoS policies that are guaranteed to be shared
- * during discovery are the ones that participate in endpoint matching.
- * From the current QoS settings available, the only ones not shared by DDS based
- * implementations are `history` and `history_depth`.
- *
  * <hr>
  * Attribute          | Adherence
  * ------------------ | -------------
@@ -80,8 +72,6 @@ extern "C"
  *   left unchanged on failure.
  *   If populated, it is up to the caller to finalize this array later on,
  *   using rmw_topic_endpoint_info_array_fini().
- *   QoS Profiles in the info array will use RMW_DURATION_INFINITE for infinite durations,
- *   avoiding exposing any implementation-specific values.
  * \return `RMW_RET_OK` if the query was successful, or
  * \return `RMW_RET_INVALID_ARGUMENT` if `node` is NULL, or
  * \return `RMW_RET_INVALID_ARGUMENT` if `allocator` is not valid,
@@ -112,9 +102,6 @@ rmw_get_publishers_info_by_topic(
  * Endpoint information includes the subscription's node name and namespace,
  * the associated topic type, the subscription's gid, and the subscription QoS profile.
  * Names of non-existent topics are allowed, in which case an empty array will be returned.
- *
- * \par QoS that are correctly read
- * Not all QoS may be read correctly, \sa rmw_get_publishers_info_by_topic() for more details.
  *
  * <hr>
  * Attribute          | Adherence
@@ -155,8 +142,6 @@ rmw_get_publishers_info_by_topic(
  *   left unchanged on failure.
  *   If populated, it is up to the caller to finalize this array later on,
  *   using rmw_topic_endpoint_info_array_fini().
- *   QoS Profiles in the info array will use RMW_DURATION_INFINITE for infinite durations,
- *   avoiding exposing any implementation-specific values.
  * \return `RMW_RET_OK` if the query was successful, or
  * \return `RMW_RET_INVALID_ARGUMENT` if `node` is NULL, or
  * \return `RMW_RET_INVALID_ARGUMENT` if `allocator` is not valid,

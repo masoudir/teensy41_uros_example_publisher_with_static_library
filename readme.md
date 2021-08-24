@@ -101,15 +101,27 @@ Please see this [link](https://www.pjrc.com/teensy/loader_linux.html).
     ros2 run micro_ros_setup build_agent.sh
     source install/local_setup.bash
 
+#### Downloading gcc-arm-none-eabi compiler
+
+Be careful to use only this old version of gcc-arm-none-eabi-5_4-2016q3 in order to build uros for static library. You can download this using these commands:
+
+    cd /microros_ws
+    wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/5_4-2016q3/gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2?revision=111dee36-f88b-4672-8ac6-48cf41b4d375?product=GNU%20Arm%20Embedded%20Toolchain%20Downloads,32-bit,,Linux,5-2016-q3-update
+
+    tar -xf gcc-arm-none-eabi-5_4-2016q3-20160926-linux,-d-,tar.bz2
+
+
+
 #### Creating static library workspace
 
     ros2 run micro_ros_setup create_firmware_ws.sh generate_lib
     mkdir static_library_cfg
     cd static_library_cfg
-    wget https://github.com/masoudir/teensy41_uros_example_publisher_with_static_library/blob/master/static_library_cfg/teensy4.cmake
-    wget https://github.com/masoudir/teensy41_uros_example_publisher_with_static_library/blob/master/static_library_cfg/colcon.meta
+    wget https://github.com/micro-ROS/micro_ros_arduino/blob/foxy/extras/library_generation/teensy4_toolchain.cmake
+    wget https://github.com/micro-ROS/micro_ros_arduino/blob/foxy/extras/library_generation/colcon.meta
 
-    ros2 run micro_ros_setup build_firmware.sh /microros_ws/static_library_cfg/teensy4.cmake /microros_ws/static_library_cfg/colcon.meta
+    export TOOLCHAIN_PREFIX=/microros_ws/gcc-arm-none-eabi-5_4-2016q3-20160926-linux,-d-,tar/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-
+    ros2 run micro_ros_setup build_firmware.sh /microros_ws/static_library_cfg/teensy4_toolchain.cmake /microros_ws/static_library_cfg/colcon.meta
 
 ### How to create Platformio project
 
